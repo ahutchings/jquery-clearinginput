@@ -1,0 +1,100 @@
+---
+layout: default
+title: clearingInput jQuery plugin
+---
+
+<h1>clearingInput: a jQuery plugin</h1>
+
+<p>
+  clearingInput is a simple jQuery plugin that provides example/label text inside text
+  inputs that automatically clears when the input is focused. Common uses are for a
+  hint/example, or as a label when space is limited.
+</p>
+
+<h2>Getting the Code</h2>
+
+<p>
+  You can download the code at the
+  <a href="http://plugins.jquery.com/project/clearinginput">jQuery plugin site</a>
+  or view the <a
+    href="http://github.com/alexrabarts/jquery-clearinginput/tree"
+  >GitHub respository</a>.
+</p>
+
+<h2>Demo</h2>
+
+<script type="text/javascript" src="http://plugins.jquery.com/files/jquery.clearinginput.js_2.txt"></script>
+
+<form action="#" id="testForm">
+  <p>
+    <label for="testInput">This text came from a label that is now positioned off-screen</label>
+    <input id="testInput" type="text" />
+  </p>
+</form>
+
+<script type="text/javascript">
+  $('#testInput').clearingInput();
+</script>
+
+<h2>Usage</h2>
+
+<p>The value is taken from the input's label by default.  The label is
+positioned off-screen to remain accessible:</p>
+
+<pre>
+&lt;label for="myInput">The label text&lt;/label&gt;
+&lt;input id="myInput" type="text" /&gt;
+
+$('#myInput').clearingInput(); // Input value 'The label text'
+</pre>
+
+<p>If there is no label associated with the input (or if the label wraps the
+input) then the value of the input is used as the text:</p>
+
+<pre>
+&lt;label&gt;
+  My input
+  &lt;input id="myInput" type="text" value="The input text" /&gt;
+&lt;/label&gt;
+
+$('#myInput').clearingInput(); // Input value 'The input text'
+</pre>
+
+<p>If there is a label but you want to explicitly set the input text:</p>
+
+<pre>
+&lt;label for="myInput"&gt;The label text&lt;/label&gt;
+&lt;input id="myInput" type="text" value="The input text" /&gt;
+
+$('#myInput').clearingInput({text: 'Custom text'});
+// or
+var myInput = $('#myInput').clearingInput({text: myInput.val()});
+</pre>
+
+<p>Note that a limitation of using the input's own value for the text is that the
+value may be overwritten with the last submitted value if the user uses the
+back button.  For this reason, using the input's own value is discouraged.</p>
+
+<p>You probably want to add a style to your CSS for the blurred state:</p>
+
+<pre>
+input.blur { color: #CCC; }
+</pre>
+
+<p>Customise the class applied to the input when blurred:</p>
+
+<pre>
+$('#myInput').clearingInput({blurClass: 'customBlurClass'});
+</pre>
+<br />
+
+<h2>Licensing</h2>
+
+<p>
+  Licensed under the <a href="http://www.opensource.org/licenses/mit-license.php">MIT</a>.
+</p>
+
+<p>
+  Copyright &copy; 2009 <a href="http://statelesssystems.com">Stateless Systems</a>.
+</p>
+
