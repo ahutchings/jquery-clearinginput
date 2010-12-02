@@ -41,15 +41,14 @@
             input.val('');
           }
           input.removeClass(options.blurClass);
-        });
+        })
+        .blur();
 
         form.submit(function() {
           if (input.hasClass(options.blurClass)) {
             input.val('');
           }
         });
-
-        input.blur();
 
         function textFromLabel() {
           label = form.find('label[for=' + input.attr('id') + ']');
