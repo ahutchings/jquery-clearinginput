@@ -52,8 +52,7 @@
           input1 = $('#input1').clearingInput();
           input2 = $('#input2').clearingInput();
           input3 = $('#input3').clearingInput();
-          input4 = $('#input4');
-          input4.clearingInput({text: input4.val()});
+          input4 = $('#input4').clearingInput({text: 'Custom text'});
           input5 = $('#input5').clearingInput({text: 'Custom text'});
           input6 = $('#input6').clearingInput({blurClass: 'customBlurClass'});
           form   = $('#form').submit(function (e) { e.preventDefault(); return false; });
@@ -68,8 +67,8 @@
         ok(input2.val() === 'Bar', 'Value is taken from value attribute');
       });
 
-      test('Input should initially have value from value attribute', function () {
-        ok(input4.val() === 'Zap', 'Value taken from value attribute');
+      test('Input with a value and custom text should initially have value from value attribute', function () {
+        ok(input4.val() === 'Zap', 'Value is taken from value attribute');
       });
 
       test('Input should have value from optional argument', function () {
