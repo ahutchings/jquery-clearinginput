@@ -30,30 +30,26 @@
         var form  = input.parents('form:first');
         var label, text;
 
-        text = options.text || textFromLabel() || input.val();
+        text = options.text || textFromLabel();
 
-        if (text) {
-          input.val(text);
+        input.blur(function () {
+          if (input.val() === text || input.val() === '') {
+            input.addClass(options.blurClass).val(text);
+          }
+        }).focus(function () {
+          if (input.val() === text) {
+            input.val('');
+          }
+          input.removeClass(options.blurClass);
+        });
 
-          input.blur(function () {
-            if (input.val() === '') {
-              input.addClass(options.blurClass).val(text);
-            }
-          }).focus(function () {
-            if (input.val() === text) {
-              input.val('');
-            }
-            input.removeClass(options.blurClass);
-          });
+        form.submit(function() {
+          if (input.hasClass(options.blurClass)) {
+            input.val('');
+          }
+        });
 
-          form.submit(function() {
-            if (input.hasClass(options.blurClass)) {
-              input.val('');
-            }
-          });
-
-          input.blur();
-        }
+        input.blur();
 
         function textFromLabel() {
           label = form.find('label[for=' + input.attr('id') + ']');
