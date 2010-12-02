@@ -64,8 +64,8 @@
         ok(input1.val() === 'Label Foo', 'Value is taken from label');
       });
 
-      test('Input with a value should initially have value from label', function () {
-        ok(input2.val() === 'Label Bar', 'Value is taken from label');
+      test('Input with a value should initially have value from value attribute', function () {
+        ok(input2.val() === 'Bar', 'Value is taken from value attribute');
       });
 
       test('Input should initially have value from value attribute', function () {
