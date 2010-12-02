@@ -26,7 +26,7 @@
       options = $.extend(defaults, options);
 
       return this.each(function () {
-        var input = $(this).addClass(options.blurClass);
+        var input = $(this);
         var form  = input.parents('form:first');
         var label, text;
 

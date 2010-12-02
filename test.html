@@ -53,7 +53,7 @@
           input2 = $('#input2').clearingInput();
           input3 = $('#input3').clearingInput();
           input4 = $('#input4').clearingInput({text: 'Custom text'});
-          input5 = $('#input5').clearingInput({text: 'Custom text'});
+          input5 = $('#input5').clearingInput({text: 'Custom text', blurClass: 'customBlurClass'});
           input6 = $('#input6').clearingInput({blurClass: 'customBlurClass'});
           form   = $('#form').submit(function (e) { e.preventDefault(); return false; });
         }
@@ -82,9 +82,9 @@
         );
       });
 
-      test('Input should initially have blur class', function () {
+      test('Input with no value should initially have blur class', function () {
         ok(input1.hasClass('blur'),            'Input has default blur class');
-        ok(input6.hasClass('customBlurClass'), 'Input has custom blur class');
+        ok(input5.hasClass('customBlurClass'), 'Input has custom blur class');
       });
 
       test('Input should clear on focus', function () {
