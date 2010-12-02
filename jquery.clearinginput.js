@@ -30,7 +30,7 @@
         var form  = input.parents('form:first');
         var label, text;
 
-        text = options.text || textFromLabel();
+        text = options.text || textFromLabel() || '';
 
         input.blur(function () {
           if (input.val() === text || input.val() === '') {
@@ -53,7 +53,7 @@
         function textFromLabel() {
           label = form.find('label[for=' + input.attr('id') + ']');
           // Position label off screen and use it for the input text
-          return label ? label.css({position: 'absolute', left: '-9999px'}).text() : '';
+          return label ? label.css({position: 'absolute', left: '-9999px'}).text() : false;
         }
       });
     }
